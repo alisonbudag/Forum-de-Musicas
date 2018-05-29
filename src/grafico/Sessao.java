@@ -1,5 +1,8 @@
 package grafico;
 
+import java.awt.BorderLayout;
+import java.awt.EventQueue;
+
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
@@ -14,16 +17,17 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
 import javax.swing.SwingConstants;
-import javax.swing.JScrollPane;
+import javax.swing.JList;
+import javax.swing.JButton;
 
-public class Home extends JFrame {
+public class Sessao extends JFrame {
 
 	private JPanel contentPane;
 
-	public Home() {
+	public Sessao(String index) {
 		setUndecorated(true);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 500, 300);
+		setBounds(100, 100, 500, 400);
 		contentPane = new JPanel();
 		contentPane.setBackground(Color.GRAY);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -31,41 +35,19 @@ public class Home extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JTree tree = new JTree();
-		tree.setOpaque(false);
-		tree.setRootVisible(false);
-		tree.setModel(new DefaultTreeModel(
-			new DefaultMutableTreeNode("root") {
-				{
-					DefaultMutableTreeNode node_1;
-					node_1 = new DefaultMutableTreeNode("Música");
-						node_1.add(new DefaultMutableTreeNode("Discussão"));
-						node_1.add(new DefaultMutableTreeNode("Ouvindo Agora"));
-					add(node_1);
-					node_1 = new DefaultMutableTreeNode("Divulgação e Arte");
-						node_1.add(new DefaultMutableTreeNode("Bandas"));
-						node_1.add(new DefaultMutableTreeNode("Composições"));
-						node_1.add(new DefaultMutableTreeNode("Photoshop"));
-					add(node_1);
-					node_1 = new DefaultMutableTreeNode("Feedback");
-						node_1.add(new DefaultMutableTreeNode("Bugs"));
-						node_1.add(new DefaultMutableTreeNode("Melhorias"));
-					add(node_1);
-				}
-			}
-		));
-		tree.setBounds(10, 102, 480, 187);
-		tree.addMouseListener(new MouseListener() {
+		JLabel lblHome = new JLabel("Home");
+		lblHome.setFont(new Font("Tahoma", Font.BOLD, 14));
+		lblHome.setBounds(51, 11, 43, 25);
+		contentPane.add(lblHome);
+		
+		lblHome.addMouseListener(new MouseListener() {
 			
 			@Override
 			public void mouseReleased(MouseEvent e) {
 				
-				String index = tree.getLastSelectedPathComponent().toString();
+				Home a = new Home();
 				
-				if((!index.equals("Música")) && (!index.equals("Divulgação e Arte")) && (!index.equals("Feedback"))){
-					Sessao a = new Sessao(index);
-					dispose();
-				}
+				dispose();
 				
 			}
 			
@@ -93,31 +75,20 @@ public class Home extends JFrame {
 				
 			}
 		});
-		contentPane.add(tree);
-		
-		JLabel backHome = new JLabel("");
-		backHome.setIcon(new ImageIcon(getClass().getResource("/home.png")));
-		backHome.setBounds(31, 11, 25, 25);
-		contentPane.add(backHome);
-		
-		JLabel lblHome = new JLabel("Home");
-		lblHome.setFont(new Font("Tahoma", Font.BOLD, 14));
-		lblHome.setBounds(66, 11, 43, 25);
-		contentPane.add(lblHome);
 		
 		JLabel lblPerfil = new JLabel("Perfil");
 		lblPerfil.setFont(new Font("Tahoma", Font.BOLD, 14));
-		lblPerfil.setBounds(151, 11, 43, 25);
+		lblPerfil.setBounds(145, 11, 43, 25);
 		contentPane.add(lblPerfil);
 		
 		JLabel lblCaixaDeMensagens = new JLabel("Caixa de Mensagens");
 		lblCaixaDeMensagens.setFont(new Font("Tahoma", Font.BOLD, 14));
-		lblCaixaDeMensagens.setBounds(225, 11, 139, 25);
+		lblCaixaDeMensagens.setBounds(224, 11, 139, 25);
 		contentPane.add(lblCaixaDeMensagens);
 		
 		JLabel lblSair = new JLabel("Sair");
 		lblSair.setFont(new Font("Tahoma", Font.BOLD, 14));
-		lblSair.setBounds(404, 11, 43, 25);
+		lblSair.setBounds(410, 11, 43, 25);
 		contentPane.add(lblSair);
 		
 		lblSair.addMouseListener(new MouseListener() {
@@ -154,17 +125,26 @@ public class Home extends JFrame {
 			}
 		});
 		
-		JLabel lblNewLabel = new JLabel("Bem Vindo ao Darkest Side of the Music");
-		lblNewLabel.setOpaque(true);
-		lblNewLabel.setBackground(Color.LIGHT_GRAY);
-		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 18));
-		lblNewLabel.setBounds(10, 64, 480, 27);
-		contentPane.add(lblNewLabel);
+		JLabel lblSessao = new JLabel(index);
+		lblSessao.setBackground(Color.LIGHT_GRAY);
+		lblSessao.setOpaque(true);
+		lblSessao.setHorizontalAlignment(SwingConstants.CENTER);
+		lblSessao.setFont(new Font("Tahoma", Font.BOLD, 18));
+		lblSessao.setBounds(10, 64, 480, 27);
+		contentPane.add(lblSessao);
 		
-		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(488, 187, 2, 2);
-		contentPane.add(scrollPane);
+		JList list = new JList();
+		list.setBounds(10, 146, 480, 243);
+		contentPane.add(list);
+		
+		JButton btnNovoTpico = new JButton("Novo T\u00F3pico");
+		btnNovoTpico.setBounds(380, 112, 110, 23);
+		contentPane.add(btnNovoTpico);
+		
+		JLabel lblTpicos = new JLabel("T\u00F3picos");
+		lblTpicos.setFont(new Font("Tahoma", Font.BOLD, 14));
+		lblTpicos.setBounds(10, 121, 63, 17);
+		contentPane.add(lblTpicos);
 		
 		setVisible(true);
 	}

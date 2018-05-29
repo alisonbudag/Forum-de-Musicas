@@ -1,5 +1,7 @@
 package codigo;
 
+import grafico.Topico;
+
 public class Main {
 
 	public static void main(String[] args) {
@@ -8,6 +10,8 @@ public class Main {
 		co.primeiroAdmin();
 		grafico.Login gr = new grafico.Login();
 
+		//Topico a = new Topico();
+		
 	}
 
 }
