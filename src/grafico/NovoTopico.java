@@ -13,6 +13,8 @@ import javax.swing.SwingConstants;
 import javax.swing.JButton;
 import javax.swing.JTextField;
 import javax.swing.JTextArea;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class NovoTopico extends JFrame {
 
@@ -185,6 +187,20 @@ public class NovoTopico extends JFrame {
 		contentPane.add(txtMensagem);
 		
 		JButton btnEnviar = new JButton("Enviar");
+		btnEnviar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String titulo = txtTitulo.getText();
+				String mensagem = txtMensagem.getText();
+				
+				codigo.Topico a = new codigo.Topico();
+				
+				a.validaTopico(titulo, mensagem);
+				
+				Sessao b = new Sessao(index, login);
+				dispose();
+				
+			}
+		});
 		btnEnviar.setBounds(10, 366, 89, 23);
 		contentPane.add(btnEnviar);
 		

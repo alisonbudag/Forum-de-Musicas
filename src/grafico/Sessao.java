@@ -5,6 +5,7 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JTree;
 import javax.swing.tree.DefaultTreeModel;
@@ -170,9 +171,12 @@ public class Sessao extends JFrame {
 		lblSessao.setBounds(10, 64, 480, 27);
 		contentPane.add(lblSessao);
 		
-		JList list = new JList();
-		list.setBounds(10, 146, 480, 243);
-		contentPane.add(list);
+		codigo.Topico to = new codigo.Topico();
+		JList list = new JList(to.listarTopico());
+		
+		JScrollPane barra = new JScrollPane(list);
+		barra.setBounds(10, 146, 480, 243);
+		contentPane.add(barra);
 		
 		JButton btnNovoTpico = new JButton("Novo Tópico");
 		btnNovoTpico.addActionListener(new ActionListener() {
