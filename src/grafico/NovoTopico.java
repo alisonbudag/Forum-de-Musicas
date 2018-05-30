@@ -21,12 +21,15 @@ import javax.swing.JList;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.JTextField;
+import javax.swing.JTextArea;
 
-public class Sessao extends JFrame {
+public class NovoTopico extends JFrame {
 
 	private JPanel contentPane;
+	private JTextField txtTitulo;
 
-	public Sessao(String index) {
+	public NovoTopico(String index) {
 		setUndecorated(true);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 500, 400);
@@ -127,7 +130,7 @@ public class Sessao extends JFrame {
 			}
 		});
 		
-		JLabel lblSessao = new JLabel(index);
+		JLabel lblSessao = new JLabel("Novo Tópico - "+index);
 		lblSessao.setBackground(Color.LIGHT_GRAY);
 		lblSessao.setOpaque(true);
 		lblSessao.setHorizontalAlignment(SwingConstants.CENTER);
@@ -135,24 +138,30 @@ public class Sessao extends JFrame {
 		lblSessao.setBounds(10, 64, 480, 27);
 		contentPane.add(lblSessao);
 		
-		JList list = new JList();
-		list.setBounds(10, 146, 480, 243);
-		contentPane.add(list);
+		JLabel lblTitulo = new JLabel("T\u00EDtulo");
+		lblTitulo.setHorizontalAlignment(SwingConstants.LEFT);
+		lblTitulo.setFont(new Font("Tahoma", Font.BOLD, 16));
+		lblTitulo.setBounds(10, 102, 480, 15);
+		contentPane.add(lblTitulo);
 		
-		JButton btnNovoTpico = new JButton("Novo Tópico");
-		btnNovoTpico.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				NovoTopico a = new NovoTopico(index);
-				dispose();
-			}
-		});
-		btnNovoTpico.setBounds(380, 112, 110, 23);
-		contentPane.add(btnNovoTpico);
+		txtTitulo = new JTextField();
+		txtTitulo.setBounds(10, 128, 331, 20);
+		contentPane.add(txtTitulo);
+		txtTitulo.setColumns(10);
 		
-		JLabel lblTpicos = new JLabel("T\u00F3picos");
-		lblTpicos.setFont(new Font("Tahoma", Font.BOLD, 14));
-		lblTpicos.setBounds(10, 121, 63, 17);
-		contentPane.add(lblTpicos);
+		JLabel lblMensagem = new JLabel("Mensagem");
+		lblMensagem.setHorizontalAlignment(SwingConstants.LEFT);
+		lblMensagem.setFont(new Font("Tahoma", Font.BOLD, 16));
+		lblMensagem.setBounds(10, 159, 480, 25);
+		contentPane.add(lblMensagem);
+		
+		JTextArea txtMensagem = new JTextArea();
+		txtMensagem.setBounds(10, 186, 480, 173);
+		contentPane.add(txtMensagem);
+		
+		JButton btnEnviar = new JButton("Enviar");
+		btnEnviar.setBounds(10, 366, 89, 23);
+		contentPane.add(btnEnviar);
 		
 		setVisible(true);
 	}

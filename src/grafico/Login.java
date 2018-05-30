@@ -10,6 +10,8 @@ import javax.swing.SwingConstants;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.awt.event.ActionEvent;
 
 public class Login extends JFrame {
@@ -17,6 +19,7 @@ public class Login extends JFrame {
 	private JPanel pnlLogin;
 	private JTextField txtLogin;
 	private JPasswordField txtSenha;
+	private JLabel lblCadastrar;
 
 	public Login() {
 		//JFrame
@@ -74,8 +77,47 @@ public class Login extends JFrame {
 				
 			}
 		});
-		btnEntrar.setBounds(95, 74, 89, 23);
+		btnEntrar.setBounds(171, 72, 89, 23);
 		pnlLogin.add(btnEntrar);
+		
+		lblCadastrar = new JLabel("Novo usuário? clique aqui");
+		lblCadastrar.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		lblCadastrar.setBounds(20, 73, 141, 22);
+		pnlLogin.add(lblCadastrar);
+		lblCadastrar.addMouseListener(new MouseListener() {
+			
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				
+				Cadastrar a = new Cadastrar();
+				dispose();
+				
+			}
+			
+			@Override
+			public void mousePressed(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void mouseExited(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+		});
 		
 		//Exibir JFrame
 		setVisible(true);
