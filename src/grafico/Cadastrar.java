@@ -1,8 +1,5 @@
 package grafico;
 
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
@@ -127,6 +124,7 @@ public class Cadastrar extends JFrame {
 				String pais = txtPais.getText();
 				
 				Perfil a = new Perfil();
+				
 				
 				if(a.validaPerfil(nome, senha, repSenha, email, idade, estado, cidade, pais) == true){
 					Login b = new Login();

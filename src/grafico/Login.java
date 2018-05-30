@@ -64,7 +64,7 @@ public class Login extends JFrame {
 				codigo.Login a = new codigo.Login();
 				
 				if(a.validaLogin(login, senha) == true){
-					Home b = new Home();
+					Home b = new Home(login);
 					dispose();
 				}else{
 					txtLogin.setText("");

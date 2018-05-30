@@ -20,7 +20,7 @@ public class Home extends JFrame {
 
 	private JPanel contentPane;
 
-	public Home() {
+	public Home(String login) {
 		setUndecorated(true);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 500, 300);
@@ -62,7 +62,7 @@ public class Home extends JFrame {
 				String index = tree.getLastSelectedPathComponent().toString();
 				
 				if((!index.equals("Música")) && (!index.equals("Divulgação e Arte")) && (!index.equals("Feedback"))){
-					Sessao a = new Sessao(index);
+					Sessao a = new Sessao(index, login);
 					dispose();
 				}
 				
@@ -115,6 +115,41 @@ public class Home extends JFrame {
 		lblPerfil.setFont(new Font("Tahoma", Font.BOLD, 14));
 		lblPerfil.setBounds(151, 11, 43, 25);
 		contentPane.add(lblPerfil);
+		lblPerfil.addMouseListener(new MouseListener() {
+			
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				
+				Perfil a = new Perfil(login);
+				
+				dispose();
+				
+			}
+			
+			@Override
+			public void mousePressed(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void mouseExited(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+		});
 		
 		JLabel lblCaixaDeMensagens = new JLabel("Caixa de Mensagens");
 		lblCaixaDeMensagens.setFont(new Font("Tahoma", Font.BOLD, 14));

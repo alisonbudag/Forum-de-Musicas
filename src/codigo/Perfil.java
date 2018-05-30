@@ -13,7 +13,7 @@ public class Perfil {
 	private int idade;
 	private String estado;
 	private String cidade;
-	private String país;
+	private String pais;
 	
 	public String getNome() {
 		return nome;
@@ -51,11 +51,11 @@ public class Perfil {
 	public void setCidade(String cidade) {
 		this.cidade = cidade;
 	}
-	public String getPaís() {
-		return país;
+	public String getPais() {
+		return pais;
 	}
-	public void setPaís(String país) {
-		this.país = país;
+	public void setPais(String país) {
+		this.pais = país;
 	}
 
 	//ArrayList
@@ -81,7 +81,7 @@ public class Perfil {
 					
 				}
 				
-				if(valida = true){
+				if(valida == true){
 					cadastrar(nome, senha, repSenha, email, idade, estado, cidade, pais);
 					JOptionPane.showMessageDialog(null, "Bem vindo ao Dark Side of the Music, "+nome);
 				}else{
@@ -110,7 +110,7 @@ public class Perfil {
 		a.setSenha(repSenha);
 		a.setIdade(idade);
 		a.setEmail(email);
-		a.setPaís(pais);
+		a.setPais(pais);
 		a.setEstado(estado);
 		a.setCidade(cidade);
 		

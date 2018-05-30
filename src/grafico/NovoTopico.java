@@ -1,26 +1,16 @@
 package grafico;
 
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-import javax.swing.JTree;
-import javax.swing.tree.DefaultTreeModel;
-import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.JLabel;
-import javax.swing.ImageIcon;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
 import javax.swing.SwingConstants;
-import javax.swing.JList;
 import javax.swing.JButton;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
 import javax.swing.JTextField;
 import javax.swing.JTextArea;
 
@@ -29,7 +19,7 @@ public class NovoTopico extends JFrame {
 	private JPanel contentPane;
 	private JTextField txtTitulo;
 
-	public NovoTopico(String index) {
+	public NovoTopico(String index, String login) {
 		setUndecorated(true);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 500, 400);
@@ -50,7 +40,7 @@ public class NovoTopico extends JFrame {
 			@Override
 			public void mouseReleased(MouseEvent e) {
 				
-				Home a = new Home();
+				Home a = new Home(login);
 				
 				dispose();
 				
@@ -85,6 +75,41 @@ public class NovoTopico extends JFrame {
 		lblPerfil.setFont(new Font("Tahoma", Font.BOLD, 14));
 		lblPerfil.setBounds(145, 11, 43, 25);
 		contentPane.add(lblPerfil);
+		lblPerfil.addMouseListener(new MouseListener() {
+			
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				
+				Perfil a = new Perfil(login);
+				
+				dispose();
+				
+			}
+			
+			@Override
+			public void mousePressed(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void mouseExited(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+		});
 		
 		JLabel lblCaixaDeMensagens = new JLabel("Caixa de Mensagens");
 		lblCaixaDeMensagens.setFont(new Font("Tahoma", Font.BOLD, 14));

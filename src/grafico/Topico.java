@@ -28,7 +28,7 @@ public class Topico extends JFrame {
 
 	private JPanel contentPane;
 
-	public Topico() {
+	public Topico(String index, String login) {
 		setUndecorated(true);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 500, 400);
@@ -49,7 +49,7 @@ public class Topico extends JFrame {
 			@Override
 			public void mouseReleased(MouseEvent e) {
 				
-				Home a = new Home();
+				Home a = new Home(login);
 				
 				dispose();
 				
@@ -84,6 +84,41 @@ public class Topico extends JFrame {
 		lblPerfil.setFont(new Font("Tahoma", Font.BOLD, 14));
 		lblPerfil.setBounds(145, 11, 43, 25);
 		contentPane.add(lblPerfil);
+		lblPerfil.addMouseListener(new MouseListener() {
+			
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				
+				Perfil a = new Perfil(login);
+				
+				dispose();
+				
+			}
+			
+			@Override
+			public void mousePressed(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void mouseExited(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+		});
 		
 		JLabel lblCaixaDeMensagens = new JLabel("Caixa de Mensagens");
 		lblCaixaDeMensagens.setFont(new Font("Tahoma", Font.BOLD, 14));
