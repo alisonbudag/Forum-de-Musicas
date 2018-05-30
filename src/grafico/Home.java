@@ -32,8 +32,8 @@ public class Home extends JFrame {
 		contentPane.setLayout(null);
 		
 		JTree tree = new JTree();
-		tree.setOpaque(false);
 		tree.setRootVisible(false);
+		tree.setOpaque(false);
 		tree.setModel(new DefaultTreeModel(
 			new DefaultMutableTreeNode("root") {
 				{
@@ -54,7 +54,6 @@ public class Home extends JFrame {
 				}
 			}
 		));
-		tree.setBounds(10, 102, 480, 187);
 		tree.addMouseListener(new MouseListener() {
 			
 			@Override
@@ -94,6 +93,13 @@ public class Home extends JFrame {
 			}
 		});
 		contentPane.add(tree);
+		
+		JScrollPane barra = new JScrollPane(tree);
+		barra.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+	    barra.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
+		barra.setBounds(10, 102, 480, 187);
+		barra.setOpaque(false);
+		contentPane.add(barra);
 		
 		JLabel backHome = new JLabel("");
 		backHome.setIcon(new ImageIcon(getClass().getResource("/home.png")));
@@ -161,10 +167,6 @@ public class Home extends JFrame {
 		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 18));
 		lblNewLabel.setBounds(10, 64, 480, 27);
 		contentPane.add(lblNewLabel);
-		
-		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(488, 187, 2, 2);
-		contentPane.add(scrollPane);
 		
 		setVisible(true);
 	}

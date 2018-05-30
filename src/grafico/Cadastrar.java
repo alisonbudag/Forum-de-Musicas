@@ -102,14 +102,14 @@ public class Cadastrar extends JFrame {
 		JComboBox<Integer> comboIdade = new JComboBox<>();
 		comboIdade.setBounds(117, 169, 128, 20);
 		contentPane.add(comboIdade);
+		for(int i=12; i<100; i++){
+			comboIdade.addItem(i);
+		}
 		
 		JButton btnCadastrar = new JButton("Cadastrar");
 		btnCadastrar.setFont(new Font("Tahoma", Font.BOLD, 14));
 		btnCadastrar.setBounds(10, 199, 235, 23);
 		contentPane.add(btnCadastrar);
-		for(int i=0; i<100; i++){
-			comboIdade.addItem(i);
-		}
 		
 		setVisible(true);
 	}
