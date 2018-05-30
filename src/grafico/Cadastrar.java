@@ -6,6 +6,9 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import codigo.Perfil;
+
 import java.awt.Color;
 import javax.swing.JLabel;
 import java.awt.Font;
@@ -14,6 +17,8 @@ import javax.swing.JTextField;
 import javax.swing.JPasswordField;
 import javax.swing.JComboBox;
 import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class Cadastrar extends JFrame {
 
@@ -22,10 +27,13 @@ public class Cadastrar extends JFrame {
 	private JTextField txtEmail;
 	private JPasswordField txtSenha;
 	private JPasswordField txtRepSenha;
+	private JTextField txtPais;
+	private JTextField txtEstado;
+	private JTextField txtCidade;
 
 	public Cadastrar() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 276, 274);
+		setBounds(100, 100, 276, 367);
 		contentPane = new JPanel();
 		contentPane.setBackground(Color.GRAY);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -107,9 +115,78 @@ public class Cadastrar extends JFrame {
 		}
 		
 		JButton btnCadastrar = new JButton("Cadastrar");
+		btnCadastrar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String nome = txtNome.getText();
+				String senha = String.valueOf(txtSenha.getPassword());
+				String repSenha = String.valueOf(txtRepSenha.getPassword());
+				String email = txtEmail.getText();
+				int idade = (int) comboIdade.getSelectedItem();
+				String estado = txtEstado.getText();
+				String cidade = txtCidade.getText();
+				String pais = txtPais.getText();
+				
+				Perfil a = new Perfil();
+				
+				if(a.validaPerfil(nome, senha, repSenha, email, idade, estado, cidade, pais) == true){
+					Login b = new Login();
+					dispose();
+				}else{
+					txtNome.setText("");
+					txtSenha.setText("");
+					txtRepSenha.setText("");
+					txtEmail.setText("");
+					txtEstado.setText("");
+					txtCidade.setText("");
+					txtPais.setText("");
+					comboIdade.setSelectedIndex(0);
+					txtNome.requestFocus();
+				}
+				
+			}
+		});
 		btnCadastrar.setFont(new Font("Tahoma", Font.BOLD, 14));
-		btnCadastrar.setBounds(10, 199, 235, 23);
+		btnCadastrar.setBounds(10, 292, 235, 23);
 		contentPane.add(btnCadastrar);
+		
+		JLabel lblPais = new JLabel("Pa\u00EDs");
+		lblPais.setOpaque(true);
+		lblPais.setHorizontalAlignment(SwingConstants.CENTER);
+		lblPais.setFont(new Font("Tahoma", Font.BOLD, 12));
+		lblPais.setBackground(Color.LIGHT_GRAY);
+		lblPais.setBounds(10, 199, 97, 20);
+		contentPane.add(lblPais);
+		
+		txtPais = new JTextField();
+		txtPais.setColumns(10);
+		txtPais.setBounds(117, 199, 128, 20);
+		contentPane.add(txtPais);
+		
+		JLabel lblEstado = new JLabel("Estado");
+		lblEstado.setOpaque(true);
+		lblEstado.setHorizontalAlignment(SwingConstants.CENTER);
+		lblEstado.setFont(new Font("Tahoma", Font.BOLD, 12));
+		lblEstado.setBackground(Color.LIGHT_GRAY);
+		lblEstado.setBounds(10, 230, 97, 20);
+		contentPane.add(lblEstado);
+		
+		txtEstado = new JTextField();
+		txtEstado.setColumns(10);
+		txtEstado.setBounds(117, 230, 128, 20);
+		contentPane.add(txtEstado);
+		
+		JLabel lblCidade = new JLabel("Cidade");
+		lblCidade.setOpaque(true);
+		lblCidade.setHorizontalAlignment(SwingConstants.CENTER);
+		lblCidade.setFont(new Font("Tahoma", Font.BOLD, 12));
+		lblCidade.setBackground(Color.LIGHT_GRAY);
+		lblCidade.setBounds(10, 261, 97, 20);
+		contentPane.add(lblCidade);
+		
+		txtCidade = new JTextField();
+		txtCidade.setColumns(10);
+		txtCidade.setBounds(117, 261, 128, 20);
+		contentPane.add(txtCidade);
 		
 		setVisible(true);
 	}

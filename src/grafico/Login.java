@@ -63,8 +63,6 @@ public class Login extends JFrame {
 				
 				codigo.Login a = new codigo.Login();
 				
-				dispose();
-				
 				if(a.validaLogin(login, senha) == true){
 					Home b = new Home();
 					dispose();
