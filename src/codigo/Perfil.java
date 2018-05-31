@@ -83,7 +83,7 @@ public class Perfil {
 				
 				if(valida == true){
 					cadastrar(nome, senha, repSenha, email, idade, estado, cidade, pais);
-					JOptionPane.showMessageDialog(null, "Bem vindo ao Dark Side of the Music, "+nome);
+					JOptionPane.showMessageDialog(null, "Bem vindo ao Darkest Side of the Music, "+nome+"!");
 				}else{
 					JOptionPane.showMessageDialog(null, "Nome de usuário já existente.");
 				}

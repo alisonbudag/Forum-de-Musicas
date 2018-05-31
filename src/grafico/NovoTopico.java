@@ -194,7 +194,7 @@ public class NovoTopico extends JFrame {
 				
 				codigo.Topico a = new codigo.Topico();
 				
-				a.validaTopico(titulo, mensagem);
+				a.validaTopico(titulo, mensagem, index);
 				
 				Sessao b = new Sessao(index, login);
 				dispose();

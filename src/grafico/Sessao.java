@@ -172,7 +172,7 @@ public class Sessao extends JFrame {
 		contentPane.add(lblSessao);
 		
 		codigo.Topico to = new codigo.Topico();
-		JList list = new JList(to.listarTopico());
+		JList list = new JList(to.listarTopico(index));
 		
 		JScrollPane barra = new JScrollPane(list);
 		barra.setBounds(10, 146, 480, 243);
@@ -184,7 +184,6 @@ public class Sessao extends JFrame {
 			public void mouseReleased(MouseEvent e) {
 				
 				String topicoSelecionado = list.getSelectedValue().toString();
-				System.out.println(topicoSelecionado);
 				
 				if(topicoSelecionado != null){
 					Topico a = new Topico(index, login, topicoSelecionado);
