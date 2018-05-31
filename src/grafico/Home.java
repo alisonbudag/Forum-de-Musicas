@@ -59,11 +59,13 @@ public class Home extends JFrame {
 			@Override
 			public void mouseReleased(MouseEvent e) {
 				
+				if(tree.getSelectionPath() != null) {
 				String index = tree.getLastSelectedPathComponent().toString();
 				
 				if((!index.equals("Música")) && (!index.equals("Divulgação e Arte")) && (!index.equals("Feedback"))){
 					Sessao a = new Sessao(index, login);
 					dispose();
+				}
 				}
 				
 			}

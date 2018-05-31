@@ -23,6 +23,7 @@ import javax.swing.JScrollBar;
 import javax.swing.JScrollPane;
 import javax.swing.JTextPane;
 import javax.swing.JTextArea;
+import javax.swing.JTextField;
 
 public class Topico extends JFrame {
 
@@ -164,7 +165,7 @@ public class Topico extends JFrame {
 			}
 		});
 		
-		JLabel lblSessao = new JLabel("Darkest Side of the Music - ");
+		JLabel lblSessao = new JLabel(index);
 		lblSessao.setBackground(Color.LIGHT_GRAY);
 		lblSessao.setOpaque(true);
 		lblSessao.setHorizontalAlignment(SwingConstants.CENTER);
@@ -172,39 +173,36 @@ public class Topico extends JFrame {
 		lblSessao.setBounds(10, 47, 480, 27);
 		contentPane.add(lblSessao);
 		
-		JPanel pnlTopico = new JPanel();
-		pnlTopico.setBackground(Color.LIGHT_GRAY);
-		pnlTopico.setBounds(10, 95, 480, 266);
-		contentPane.add(pnlTopico);
-		pnlTopico.setLayout(null);
-		
-		JLabel lblTtuloDoTpico = new JLabel("T\u00EDtulo do t\u00F3pico");
-		lblTtuloDoTpico.setFont(new Font("Tahoma", Font.BOLD, 14));
-		lblTtuloDoTpico.setHorizontalAlignment(SwingConstants.LEFT);
-		lblTtuloDoTpico.setBounds(10, 11, 460, 22);
-		pnlTopico.add(lblTtuloDoTpico);
-		
-		JTextArea txtrComentario = new JTextArea();
-		txtrComentario.setEditable(false);
-		txtrComentario.setOpaque(false);
-		txtrComentario.setText("Coment\u00E1rio");
-		txtrComentario.setBounds(10, 44, 460, 104);
-		pnlTopico.add(txtrComentario);
-		
-		JTextArea txtComentario2 = new JTextArea();
-		txtComentario2.setEditable(false);
-		txtComentario2.setOpaque(false);
-		txtComentario2.setText("Coment\u00E1rio #2");
-		txtComentario2.setBounds(10, 159, 460, 104);
-		pnlTopico.add(txtComentario2);
-		
-		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(0, 0, 2, 2);
-		pnlTopico.add(scrollPane);
-		
 		JButton btnResponder = new JButton("Responder");
 		btnResponder.setBounds(10, 366, 106, 23);
 		contentPane.add(btnResponder);
+		
+		//Puxando dados
+		String titTopic = "";
+		String msgTopic = "";
+		
+		for(int i=0; i<codigo.Topico.dadosTopico.size(); i++) {
+			if(index.equals(codigo.Topico.dadosTopico.get(i).getSessao()) && (topicoSelecionado.equals(codigo.Topico.dadosTopico.get(i).getTitulo()))) {
+				titTopic = topicoSelecionado;
+				msgTopic = codigo.Topico.dadosTopico.get(i).getMensagem();
+			}
+		}
+		
+		JLabel lblTitulotopico = new JLabel("Topico: "+titTopic);
+		lblTitulotopico.setFont(new Font("Tahoma", Font.BOLD, 14));
+		lblTitulotopico.setHorizontalAlignment(SwingConstants.LEFT);
+		lblTitulotopico.setBounds(10, 85, 480, 25);
+		contentPane.add(lblTitulotopico);
+		
+		JTextArea txtrMsgtopico = new JTextArea();
+		txtrMsgtopico.setEditable(false);
+		txtrMsgtopico.setText(msgTopic);
+		txtrMsgtopico.setBounds(10, 116, 480, 111);
+		contentPane.add(txtrMsgtopico);
+		
+		JPanel panel = new JPanel();
+		panel.setBounds(10, 237, 480, 118);
+		contentPane.add(panel);
 		
 		setVisible(true);
 	}
