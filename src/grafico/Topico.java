@@ -28,7 +28,7 @@ public class Topico extends JFrame {
 
 	private JPanel contentPane;
 
-	public Topico(String index, String login) {
+	public Topico(String index, String login, String topicoSelecionado) {
 		setUndecorated(true);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 500, 400);

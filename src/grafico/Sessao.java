@@ -178,6 +178,46 @@ public class Sessao extends JFrame {
 		barra.setBounds(10, 146, 480, 243);
 		contentPane.add(barra);
 		
+		list.addMouseListener(new MouseListener() {
+			
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				
+				String topicoSelecionado = list.getSelectedValue().toString();
+				System.out.println(topicoSelecionado);
+				
+				if(topicoSelecionado != null){
+					Topico a = new Topico(index, login, topicoSelecionado);
+					dispose();
+				}
+				
+			}
+			
+			@Override
+			public void mousePressed(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void mouseExited(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+		});
+		
 		JButton btnNovoTpico = new JButton("Novo Tópico");
 		btnNovoTpico.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
