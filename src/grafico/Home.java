@@ -103,19 +103,50 @@ public class Home extends JFrame {
 		barra.setOpaque(false);
 		contentPane.add(barra);
 		
-		JLabel backHome = new JLabel("");
-		backHome.setIcon(new ImageIcon(getClass().getResource("/home.png")));
-		backHome.setBounds(31, 11, 25, 25);
-		contentPane.add(backHome);
-		
 		JLabel lblHome = new JLabel("Home");
 		lblHome.setFont(new Font("Tahoma", Font.BOLD, 14));
-		lblHome.setBounds(66, 11, 43, 25);
+		lblHome.setBounds(50, 11, 43, 25);
 		contentPane.add(lblHome);
+		
+		lblHome.addMouseListener(new MouseListener() {
+			
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				
+				Home a = new Home(login);
+				
+				dispose();
+				
+			}
+			
+			@Override
+			public void mousePressed(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void mouseExited(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+		});
 		
 		JLabel lblPerfil = new JLabel("Perfil");
 		lblPerfil.setFont(new Font("Tahoma", Font.BOLD, 14));
-		lblPerfil.setBounds(151, 11, 43, 25);
+		lblPerfil.setBounds(175, 11, 43, 25);
 		contentPane.add(lblPerfil);
 		lblPerfil.addMouseListener(new MouseListener() {
 			
@@ -153,14 +184,49 @@ public class Home extends JFrame {
 			}
 		});
 		
-		JLabel lblCaixaDeMensagens = new JLabel("Caixa de Mensagens");
-		lblCaixaDeMensagens.setFont(new Font("Tahoma", Font.BOLD, 14));
-		lblCaixaDeMensagens.setBounds(225, 11, 139, 25);
-		contentPane.add(lblCaixaDeMensagens);
+		JLabel lblLogout = new JLabel("Logout");
+		lblLogout.setFont(new Font("Tahoma", Font.BOLD, 14));
+		lblLogout.setBounds(300, 11, 139, 25);
+		contentPane.add(lblLogout);
+		lblLogout.addMouseListener(new MouseListener() {
+			
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				
+				Login a = new Login();
+				
+				dispose();
+				
+			}
+			
+			@Override
+			public void mousePressed(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void mouseExited(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+		});
 		
 		JLabel lblSair = new JLabel("Sair");
 		lblSair.setFont(new Font("Tahoma", Font.BOLD, 14));
-		lblSair.setBounds(404, 11, 43, 25);
+		lblSair.setBounds(425, 11, 43, 25);
 		contentPane.add(lblSair);
 		
 		lblSair.addMouseListener(new MouseListener() {

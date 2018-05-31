@@ -40,7 +40,7 @@ public class Sessao extends JFrame {
 		
 		JLabel lblHome = new JLabel("Home");
 		lblHome.setFont(new Font("Tahoma", Font.BOLD, 14));
-		lblHome.setBounds(51, 11, 43, 25);
+		lblHome.setBounds(50, 11, 43, 25);
 		contentPane.add(lblHome);
 		
 		lblHome.addMouseListener(new MouseListener() {
@@ -81,7 +81,7 @@ public class Sessao extends JFrame {
 		
 		JLabel lblPerfil = new JLabel("Perfil");
 		lblPerfil.setFont(new Font("Tahoma", Font.BOLD, 14));
-		lblPerfil.setBounds(145, 11, 43, 25);
+		lblPerfil.setBounds(175, 11, 43, 25);
 		contentPane.add(lblPerfil);
 		lblPerfil.addMouseListener(new MouseListener() {
 			
@@ -119,14 +119,49 @@ public class Sessao extends JFrame {
 			}
 		});
 		
-		JLabel lblCaixaDeMensagens = new JLabel("Caixa de Mensagens");
-		lblCaixaDeMensagens.setFont(new Font("Tahoma", Font.BOLD, 14));
-		lblCaixaDeMensagens.setBounds(224, 11, 139, 25);
-		contentPane.add(lblCaixaDeMensagens);
+		JLabel lblLogout = new JLabel("Logout");
+		lblLogout.setFont(new Font("Tahoma", Font.BOLD, 14));
+		lblLogout.setBounds(300, 11, 139, 25);
+		contentPane.add(lblLogout);
+		lblLogout.addMouseListener(new MouseListener() {
+			
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				
+				Login a = new Login();
+				
+				dispose();
+				
+			}
+			
+			@Override
+			public void mousePressed(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void mouseExited(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+		});
 		
 		JLabel lblSair = new JLabel("Sair");
 		lblSair.setFont(new Font("Tahoma", Font.BOLD, 14));
-		lblSair.setBounds(410, 11, 43, 25);
+		lblSair.setBounds(425, 11, 43, 25);
 		contentPane.add(lblSair);
 		
 		lblSair.addMouseListener(new MouseListener() {
@@ -183,11 +218,13 @@ public class Sessao extends JFrame {
 			@Override
 			public void mouseReleased(MouseEvent e) {
 				
-				String topicoSelecionado = list.getSelectedValue().toString();
+				if(list.getSelectedIndex() != -1) {
+					String topicoSelecionado = list.getSelectedValue().toString();
 				
-				if(topicoSelecionado != null){
-					Topico a = new Topico(index, login, topicoSelecionado);
-					dispose();
+					if(topicoSelecionado != null){
+						Topico a = new Topico(index, login, topicoSelecionado);
+						dispose();
+					}
 				}
 				
 			}
@@ -227,7 +264,7 @@ public class Sessao extends JFrame {
 		btnNovoTpico.setBounds(380, 112, 110, 23);
 		contentPane.add(btnNovoTpico);
 		
-		JLabel lblTpicos = new JLabel("T\u00F3picos");
+		JLabel lblTpicos = new JLabel("Tópicos");
 		lblTpicos.setFont(new Font("Tahoma", Font.BOLD, 14));
 		lblTpicos.setBounds(10, 121, 63, 17);
 		contentPane.add(lblTpicos);
