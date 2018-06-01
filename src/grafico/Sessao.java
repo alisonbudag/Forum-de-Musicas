@@ -27,7 +27,7 @@ public class Sessao extends JFrame {
 
 	private JPanel contentPane;
 
-	public Sessao(String index, String login) {
+	public Sessao(String index) {
 		setUndecorated(true);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 500, 400);
@@ -48,7 +48,7 @@ public class Sessao extends JFrame {
 			@Override
 			public void mouseReleased(MouseEvent e) {
 				
-				Home a = new Home(login);
+				Home a = new Home();
 				
 				dispose();
 				
@@ -88,7 +88,7 @@ public class Sessao extends JFrame {
 			@Override
 			public void mouseReleased(MouseEvent e) {
 				
-				Perfil a = new Perfil(login);
+				Perfil a = new Perfil();
 				
 				dispose();
 				
@@ -222,7 +222,7 @@ public class Sessao extends JFrame {
 					String topicoSelecionado = list.getSelectedValue().toString();
 				
 					if(topicoSelecionado != null){
-						Topico a = new Topico(index, login, topicoSelecionado);
+						Topico a = new Topico(index, topicoSelecionado);
 						dispose();
 					}
 				}
@@ -257,7 +257,7 @@ public class Sessao extends JFrame {
 		JButton btnNovoTpico = new JButton("Novo Tópico");
 		btnNovoTpico.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				NovoTopico a = new NovoTopico(index, login);
+				NovoTopico a = new NovoTopico(index);
 				dispose();
 			}
 		});

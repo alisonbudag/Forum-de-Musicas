@@ -21,7 +21,7 @@ public class NovoTopico extends JFrame {
 	private JPanel contentPane;
 	private JTextField txtTitulo;
 
-	public NovoTopico(String index, String login) {
+	public NovoTopico(String index) {
 		setUndecorated(true);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 500, 400);
@@ -42,7 +42,7 @@ public class NovoTopico extends JFrame {
 			@Override
 			public void mouseReleased(MouseEvent e) {
 				
-				Home a = new Home(login);
+				Home a = new Home();
 				
 				dispose();
 				
@@ -82,7 +82,7 @@ public class NovoTopico extends JFrame {
 			@Override
 			public void mouseReleased(MouseEvent e) {
 				
-				Perfil a = new Perfil(login);
+				Perfil a = new Perfil();
 				
 				dispose();
 				
@@ -218,6 +218,7 @@ public class NovoTopico extends JFrame {
 		contentPane.add(lblMensagem);
 		
 		JTextArea txtMensagem = new JTextArea();
+		txtMensagem.setLineWrap(true);
 		txtMensagem.setBounds(10, 186, 480, 173);
 		contentPane.add(txtMensagem);
 		
@@ -231,13 +232,23 @@ public class NovoTopico extends JFrame {
 				
 				a.validaTopico(titulo, mensagem, index);
 				
-				Sessao b = new Sessao(index, login);
+				Sessao b = new Sessao(index);
 				dispose();
 				
 			}
 		});
 		btnEnviar.setBounds(10, 366, 89, 23);
 		contentPane.add(btnEnviar);
+		
+		JButton btnVoltar = new JButton("Voltar");
+		btnVoltar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Sessao a = new Sessao(index);
+				dispose();
+			}
+		});
+		btnVoltar.setBounds(401, 366, 89, 23);
+		contentPane.add(btnVoltar);
 		
 		setVisible(true);
 	}

@@ -28,18 +28,6 @@ public class Login {
 	public void setSenha(String senha) {
 		this.senha = senha;
 	}
-
-	
-	//Primeiro ADM	
-	public void primeiroAdmin() {
-		
-		Login a = new Login();
-		
-		a.setLogin("Admin");;
-		a.setSenha("Admin");
-		dadosLogin.add(a);
-		
-	}
 	
 	//Validar Login
 	public boolean validaLogin(String login, String senha){

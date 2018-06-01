@@ -6,8 +6,8 @@ public class Main {
 
 	public static void main(String[] args) {
 		
-		Login co = new Login();
-		co.primeiroAdmin();
+		Perfil adm = new Perfil();
+		adm.perfilAdm();
 		grafico.Login gr = new grafico.Login();
 
 		//Topico a = new Topico();

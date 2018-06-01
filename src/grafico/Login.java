@@ -64,8 +64,17 @@ public class Login extends JFrame {
 				codigo.Login a = new codigo.Login();
 				
 				if(a.validaLogin(login, senha) == true){
-					Home b = new Home(login);
+					Home b = new Home();
 					dispose();
+					
+					//Retornar Nível de Acesso
+					for(int i=0; i<codigo.Perfil.dadosPerfil.size(); i++) {
+						if(login.equals(codigo.Perfil.dadosPerfil.get(i).getNome())) {
+							codigo.VariaveisEstaticas.usuarioLogado = login;
+							codigo.VariaveisEstaticas.isMod = codigo.Perfil.dadosPerfil.get(i).isMod();
+							codigo.VariaveisEstaticas.isAdm = codigo.Perfil.dadosPerfil.get(i).isAdm();
+						}
+					}
 				}else{
 					txtLogin.setText("");
 					txtSenha.setText("");

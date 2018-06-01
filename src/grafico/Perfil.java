@@ -26,7 +26,7 @@ public class Perfil extends JFrame {
 
 	private JPanel contentPane;
 
-	public Perfil(String login) {
+	public Perfil() {
 		setUndecorated(true);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 500, 400);
@@ -47,7 +47,7 @@ public class Perfil extends JFrame {
 			@Override
 			public void mouseReleased(MouseEvent e) {
 				
-				Home a = new Home(login);
+				Home a = new Home();
 				
 				dispose();
 				
@@ -87,7 +87,7 @@ public class Perfil extends JFrame {
 			@Override
 			public void mouseReleased(MouseEvent e) {
 				
-				Perfil a = new Perfil(login);
+				Perfil a = new Perfil();
 				
 				dispose();
 				
@@ -205,6 +205,14 @@ public class Perfil extends JFrame {
 		lblSessao.setBounds(10, 64, 480, 27);
 		contentPane.add(lblSessao);
 		
+		if(codigo.VariaveisEstaticas.isAdm == true) {
+			lblSessao.setText("PERFIL - ADMINISTRADOR");
+		}else if(codigo.VariaveisEstaticas.isMod == true) {
+			lblSessao.setText("PERFIL - MODERADOR");
+		}else {
+			lblSessao.setText("PERFIL - MEMBRO");
+		}
+		
 		JLabel lblNome = new JLabel("Nome");
 		lblNome.setFont(new Font("Tahoma", Font.BOLD, 16));
 		lblNome.setHorizontalAlignment(SwingConstants.CENTER);
@@ -251,7 +259,7 @@ public class Perfil extends JFrame {
 		
 		for(int i=0; i<codigo.Perfil.dadosPerfil.size(); i++){
 			
-			if(codigo.Perfil.dadosPerfil.get(i).getNome().equals(login)){
+			if(codigo.Perfil.dadosPerfil.get(i).getNome().equals(codigo.VariaveisEstaticas.usuarioLogado)){
 				nome = codigo.Perfil.dadosPerfil.get(i).getNome();
 				idade = codigo.Perfil.dadosPerfil.get(i).getIdade();
 				email = codigo.Perfil.dadosPerfil.get(i).getEmail();

@@ -36,13 +36,14 @@ public class Cadastrar extends JFrame {
 
 	public Cadastrar() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 276, 367);
+		setBounds(100, 100, 276, 397);
 		contentPane = new JPanel();
 		contentPane.setBackground(Color.GRAY);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		setLocationRelativeTo(null);
+		setTitle("Cadastrar");
 
 		JLabel lblNovoUsuario = new JLabel("NOVO USU\u00C1RIO");
 		lblNovoUsuario.setBackground(Color.LIGHT_GRAY);
@@ -198,6 +199,20 @@ public class Cadastrar extends JFrame {
 		txtCidade.setColumns(10);
 		txtCidade.setBounds(117, 261, 128, 20);
 		contentPane.add(txtCidade);
+		
+		JButton btnCancelar = new JButton("Cancelar");
+		btnCancelar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				Login a = new Login();
+				
+				dispose();
+				
+			}
+		});
+		btnCancelar.setFont(new Font("Tahoma", Font.BOLD, 14));
+		btnCancelar.setBounds(10, 323, 235, 23);
+		contentPane.add(btnCancelar);
 
 		setVisible(true);
 	}

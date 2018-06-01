@@ -20,7 +20,7 @@ public class Home extends JFrame {
 
 	private JPanel contentPane;
 
-	public Home(String login) {
+	public Home() {
 		setUndecorated(true);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 500, 300);
@@ -63,7 +63,7 @@ public class Home extends JFrame {
 				String index = tree.getLastSelectedPathComponent().toString();
 				
 				if((!index.equals("Música")) && (!index.equals("Divulgação e Arte")) && (!index.equals("Feedback"))){
-					Sessao a = new Sessao(index, login);
+					Sessao a = new Sessao(index);
 					dispose();
 				}
 				}
@@ -113,7 +113,7 @@ public class Home extends JFrame {
 			@Override
 			public void mouseReleased(MouseEvent e) {
 				
-				Home a = new Home(login);
+				Home a = new Home();
 				
 				dispose();
 				
@@ -153,7 +153,7 @@ public class Home extends JFrame {
 			@Override
 			public void mouseReleased(MouseEvent e) {
 				
-				Perfil a = new Perfil(login);
+				Perfil a = new Perfil();
 				
 				dispose();
 				
@@ -186,7 +186,7 @@ public class Home extends JFrame {
 		
 		JLabel lblLogout = new JLabel("Logout");
 		lblLogout.setFont(new Font("Tahoma", Font.BOLD, 14));
-		lblLogout.setBounds(300, 11, 139, 25);
+		lblLogout.setBounds(300, 11, 56, 25);
 		contentPane.add(lblLogout);
 		lblLogout.addMouseListener(new MouseListener() {
 			
@@ -226,7 +226,7 @@ public class Home extends JFrame {
 		
 		JLabel lblSair = new JLabel("Sair");
 		lblSair.setFont(new Font("Tahoma", Font.BOLD, 14));
-		lblSair.setBounds(425, 11, 43, 25);
+		lblSair.setBounds(425, 11, 26, 25);
 		contentPane.add(lblSair);
 		
 		lblSair.addMouseListener(new MouseListener() {

@@ -14,7 +14,26 @@ public class Perfil {
 	private String estado;
 	private String cidade;
 	private String pais;
+	/*Adicionar Atributo de Nível de Acesso
+	 * Membro = false;
+	 * Moderador = true
+	 */
+	private boolean mod;
+	private boolean adm;
 	
+	//Métodos Mágicos
+	public boolean isAdm() {
+		return adm;
+	}
+	public void setAdm(boolean adm) {
+		this.adm = adm;
+	}
+	public boolean isMod() {
+		return mod;
+	}
+	public void setMod(boolean mod) {
+		this.mod = mod;
+	}
 	public String getNome() {
 		return nome;
 	}
@@ -102,17 +121,43 @@ public class Perfil {
 		
 	}
 	
+	//Cadastrar primeiro Perfil
+	public void perfilAdm() {
+		
+		Perfil a = new Perfil();
+		a.nome = "Alison";
+		a.senha = "123";
+		a.idade = 23;
+		a.email = "alison.rafaelc@gmail.com";
+		a.pais = "Brasil";
+		a.estado = "Santa Catarina";
+		a.cidade = "Blumenau";
+		a.mod = true;
+		a.adm = true;
+		
+		dadosPerfil.add(a);
+		
+		Login b = new Login();
+		
+		b.setLogin("Alison");;
+		b.setSenha("123");
+		Login.dadosLogin.add(b);
+		
+	}
+	
 	//Cadastrar no Array de Perfil e Login
 	public void cadastrar(String nome, String senha, String repSenha, String email, int idade, String estado, String cidade, String pais){
 		
 		Perfil a = new Perfil();
 		a.setNome(nome);
-		a.setSenha(repSenha);
+		a.setSenha(senha);
 		a.setIdade(idade);
 		a.setEmail(email);
 		a.setPais(pais);
 		a.setEstado(estado);
 		a.setCidade(cidade);
+		a.setMod(false);
+		a.setAdm(false);
 		
 		dadosPerfil.add(a);
 		

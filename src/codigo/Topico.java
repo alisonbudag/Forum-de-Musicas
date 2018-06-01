@@ -64,7 +64,7 @@ public class Topico {
 		
 	}
 	
-	//
+	//Listar tópicos
 	public DefaultListModel<String> listarTopico(String index){
 		
 		DefaultListModel<String> modelo = new DefaultListModel<>();
@@ -76,6 +76,19 @@ public class Topico {
 		}
 		
 		return modelo;		
+		
+	}
+	
+	//Excluir tópico
+	public void excluirTopico(String index, String topicoSelecionado) {
+		
+		for(int i=0; i<Topico.dadosTopico.size(); i++){
+			if(index.equals(Topico.dadosTopico.get(i).getSessao())) {
+				if(topicoSelecionado.equals(Topico.dadosTopico.get(i).getTitulo())) {
+					Topico.dadosTopico.remove(i);
+				}
+			}
+		}
 		
 	}
 	
