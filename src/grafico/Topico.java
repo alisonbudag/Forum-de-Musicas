@@ -8,6 +8,9 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JTree;
 import javax.swing.tree.DefaultTreeModel;
+
+import codigo.JPanelMensagem;
+
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.JLabel;
 import javax.swing.ImageIcon;
@@ -33,6 +36,7 @@ import javax.swing.ScrollPaneConstants;
 public class Topico extends JFrame {
 
 	private JPanel contentPane;
+	private JTextField txtTeste;
 
 	public Topico(String index, String topicoSelecionado) {
 		setUndecorated(true);
@@ -251,11 +255,9 @@ public class Topico extends JFrame {
 		barraMsgTopico.setBounds(10, 116, 480, 111);
 		contentPane.add(barraMsgTopico);
 		
-		JPanel panel = new JPanel();
-		panel.setBackground(Color.GRAY);
-		panel.setBounds(10, 237, 480, 122);
-		contentPane.add(panel);
-		panel.setLayout(null);
+		//Chamar JPanel
+		JPanelMensagem a = new JPanelMensagem();
+		contentPane.add(a.estrutura(""));
 		
 		JButton btnVoltar = new JButton("Voltar");
 		btnVoltar.addActionListener(new ActionListener() {
