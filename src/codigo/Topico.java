@@ -12,7 +12,17 @@ public class Topico {
 	private String titulo;
 	private String mensagem;
 	private String sessao;
-	
+	private String respostas;
+
+	//Método Mágico
+	public String getRespostas() {
+		return respostas;
+	}
+
+	public void setRespostas(String respostas) {
+		this.respostas = respostas;
+	}
+
 	public String getSessao() {
 		return sessao;
 	}
@@ -37,10 +47,12 @@ public class Topico {
 		this.mensagem = mensagem;
 	}
 
-	//ArrayList
+	//ArrayList Tópico
 	public static ArrayList<Topico> dadosTopico = new ArrayList<>();
+	//ArrayList RespostasTópico
+	public static ArrayList<Topico> dadosRespostasTopico = new ArrayList<>();
 	
-	//Validar Topico
+	//Validar Tópico
 	public void validaTopico(String titulo, String mensagem, String index){
 		
 		if((!titulo.equals("")) && (!mensagem.equals(""))){
@@ -89,6 +101,26 @@ public class Topico {
 				}
 			}
 		}
+		
+	}
+	
+	//Validar responder tópico
+	public void validaResponderTopico(String mensagem){
+		
+		if((!mensagem.equals(""))){
+			cadastrarResponderTopico(mensagem);
+		}else{
+			JOptionPane.showMessageDialog(null, "Você precisa digitar alguma coisa para enviar.");
+		}
+		
+	}
+	
+	//Cadastrar resposta no Array
+	public void cadastrarResponderTopico(String mensagem) {
+		
+		Topico a = new Topico();
+		a.setRespostas(mensagem);
+		Topico.dadosRespostasTopico.add(a);
 		
 	}
 	

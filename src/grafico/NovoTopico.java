@@ -237,7 +237,7 @@ public class NovoTopico extends JFrame {
 				
 			}
 		});
-		btnEnviar.setBounds(10, 366, 89, 23);
+		btnEnviar.setBounds(401, 366, 89, 23);
 		contentPane.add(btnEnviar);
 		
 		JButton btnVoltar = new JButton("Voltar");
@@ -247,7 +247,7 @@ public class NovoTopico extends JFrame {
 				dispose();
 			}
 		});
-		btnVoltar.setBounds(401, 366, 89, 23);
+		btnVoltar.setBounds(10, 366, 89, 23);
 		contentPane.add(btnVoltar);
 		
 		setVisible(true);

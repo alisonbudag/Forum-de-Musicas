@@ -23,7 +23,7 @@ public class Home extends JFrame {
 	public Home() {
 		setUndecorated(true);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 500, 300);
+		setBounds(100, 100, 500, 400);
 		contentPane = new JPanel();
 		contentPane.setBackground(Color.GRAY);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -99,7 +99,7 @@ public class Home extends JFrame {
 		JScrollPane barra = new JScrollPane(tree);
 		barra.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
 	    barra.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
-		barra.setBounds(10, 102, 480, 187);
+		barra.setBounds(10, 119, 480, 270);
 		barra.setOpaque(false);
 		contentPane.add(barra);
 		

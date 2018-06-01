@@ -1,40 +1,26 @@
 package grafico;
 
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-import javax.swing.JTree;
-import javax.swing.tree.DefaultTreeModel;
-import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.JLabel;
-import javax.swing.ImageIcon;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
 import javax.swing.SwingConstants;
-import javax.swing.JList;
-import javax.swing.JOptionPane;
 import javax.swing.JButton;
-import javax.swing.JScrollBar;
-import javax.swing.JScrollPane;
-import javax.swing.JTextPane;
-import javax.swing.JTextArea;
 import javax.swing.JTextField;
-import java.awt.FlowLayout;
+import javax.swing.JTextArea;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-import javax.swing.ScrollPaneConstants;
 
-public class Topico extends JFrame {
+public class ResponderTopico extends JFrame {
 
 	private JPanel contentPane;
 
-	public Topico(String index, String topicoSelecionado) {
+	public ResponderTopico(String index, String topicoSelecionado) {
 		setUndecorated(true);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 500, 400);
@@ -205,90 +191,48 @@ public class Topico extends JFrame {
 			}
 		});
 		
-		JLabel lblSessao = new JLabel(index);
+		JLabel lblSessao = new JLabel("Responder tópico: "+topicoSelecionado);
 		lblSessao.setBackground(Color.LIGHT_GRAY);
 		lblSessao.setOpaque(true);
 		lblSessao.setHorizontalAlignment(SwingConstants.CENTER);
 		lblSessao.setFont(new Font("Tahoma", Font.BOLD, 18));
-		lblSessao.setBounds(10, 47, 480, 27);
+		lblSessao.setBounds(10, 64, 480, 27);
 		contentPane.add(lblSessao);
 		
-		JButton btnResponder = new JButton("Responder");
-		btnResponder.addActionListener(new ActionListener() {
+		JLabel lblMensagem = new JLabel("Mensagem");
+		lblMensagem.setHorizontalAlignment(SwingConstants.LEFT);
+		lblMensagem.setFont(new Font("Tahoma", Font.BOLD, 16));
+		lblMensagem.setBounds(10, 102, 480, 25);
+		contentPane.add(lblMensagem);
+		
+		JTextArea txtMensagem = new JTextArea();
+		txtMensagem.setLineWrap(true);
+		txtMensagem.setBounds(10, 138, 480, 221);
+		contentPane.add(txtMensagem);
+		
+		JButton btnEnviar = new JButton("Enviar");
+		btnEnviar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				ResponderTopico a = new ResponderTopico(index, topicoSelecionado);
+				String mensagem = txtMensagem.getText();
+				codigo.Topico a = new codigo.Topico();
+				a.validaResponderTopico(mensagem);
+				
+				Topico b = new Topico(index, topicoSelecionado);
 				dispose();
 			}
 		});
-		btnResponder.setBounds(384, 366, 106, 23);
-		contentPane.add(btnResponder);
-		
-		//Puxando dados
-		String titTopic = "";
-		String msgTopic = "";
-		
-		for(int i=0; i<codigo.Topico.dadosTopico.size(); i++) {
-			if(index.equals(codigo.Topico.dadosTopico.get(i).getSessao()) && (topicoSelecionado.equals(codigo.Topico.dadosTopico.get(i).getTitulo()))) {
-				titTopic = topicoSelecionado;
-				msgTopic = codigo.Topico.dadosTopico.get(i).getMensagem();
-			}
-		}
-		
-		JLabel lblTitulotopico = new JLabel("Topico: "+titTopic);
-		lblTitulotopico.setBackground(Color.LIGHT_GRAY);
-		lblTitulotopico.setFont(new Font("Tahoma", Font.BOLD, 13));
-		lblTitulotopico.setHorizontalAlignment(SwingConstants.LEFT);
-		lblTitulotopico.setBounds(10, 85, 350, 25);
-		contentPane.add(lblTitulotopico);
-		
-		JTextArea txtrMsgtopico = new JTextArea();
-		txtrMsgtopico.setLineWrap(true);
-		txtrMsgtopico.setBackground(Color.LIGHT_GRAY);
-		txtrMsgtopico.setEditable(false);
-		txtrMsgtopico.setText(msgTopic);
-		JScrollPane barraMsgTopico = new JScrollPane(txtrMsgtopico);
-		barraMsgTopico.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
-		barraMsgTopico.setBounds(10, 116, 480, 111);
-		contentPane.add(barraMsgTopico);
-		
-		JPanel panel = new JPanel();
-		panel.setBackground(Color.GRAY);
-		panel.setBounds(10, 237, 480, 122);
-		contentPane.add(panel);
-		panel.setLayout(null);
+		btnEnviar.setBounds(401, 366, 89, 23);
+		contentPane.add(btnEnviar);
 		
 		JButton btnVoltar = new JButton("Voltar");
 		btnVoltar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Sessao a = new Sessao(index);
+				Topico a = new Topico(index, topicoSelecionado);
 				dispose();
 			}
 		});
-		btnVoltar.setBounds(10, 366, 106, 23);
+		btnVoltar.setBounds(10, 366, 89, 23);
 		contentPane.add(btnVoltar);
-		
-		JButton btnExcluirTopico = new JButton("Excluir tópico");
-		btnExcluirTopico.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		btnExcluirTopico.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				
-				int confirm = JOptionPane.showConfirmDialog(null, "Você tem certeza?", "Excluir tópico", 0);
-				if(confirm == 0) {
-					codigo.Topico a = new codigo.Topico();
-					a.excluirTopico(index, topicoSelecionado);
-					Sessao b = new Sessao(index);
-					dispose();
-				}
-				
-			}
-		});
-		btnExcluirTopico.setBounds(370, 85, 120, 23);
-		if(codigo.VariaveisEstaticas.isMod == true || codigo.VariaveisEstaticas.isAdm == true) {
-			btnExcluirTopico.setVisible(true);
-		}else {
-			btnExcluirTopico.setVisible(false);
-		}
-		contentPane.add(btnExcluirTopico);
 		
 		setVisible(true);
 	}
