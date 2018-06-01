@@ -252,7 +252,7 @@ public class Topico extends JFrame {
 		txtrMsgtopico.setText(msgTopic);
 		JScrollPane barraMsgTopico = new JScrollPane(txtrMsgtopico);
 		barraMsgTopico.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
-		barraMsgTopico.setBounds(10, 116, 480, 111);
+		barraMsgTopico.setBounds(10, 116, 480, 85);
 		contentPane.add(barraMsgTopico);
 		
 		//Chamar JPanel

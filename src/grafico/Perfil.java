@@ -325,7 +325,7 @@ public class Perfil extends JFrame {
 		contentPane.add(seuPais);
 		
 		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\ALISONRAFAEL\\Desktop\\Java Fundamentos\\06 - Orienta\u00E7\u00E3o Objetos\\Forum de Musicas\\resources\\semFoto.jpg"));
+		lblNewLabel.setIcon(new ImageIcon(getClass().getResource("/semFoto.jpg")));
 		lblNewLabel.setBounds(355, 102, 135, 127);
 		contentPane.add(lblNewLabel);
 		

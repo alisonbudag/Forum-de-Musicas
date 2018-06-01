@@ -7,6 +7,4 @@ public class VariaveisEstaticas {
 	public static boolean isMod;
 	public static boolean isAdm;
 	
-	
-
 }
