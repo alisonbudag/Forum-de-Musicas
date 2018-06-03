@@ -2,6 +2,7 @@ package grafico;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 import java.awt.Color;
@@ -207,15 +208,16 @@ public class ResponderTopico extends JFrame {
 		
 		JTextArea txtMensagem = new JTextArea();
 		txtMensagem.setLineWrap(true);
-		txtMensagem.setBounds(10, 138, 480, 221);
-		contentPane.add(txtMensagem);
+		JScrollPane barraResponder = new JScrollPane(txtMensagem);
+		barraResponder.setBounds(10, 138, 480, 221);
+		contentPane.add(barraResponder);
 		
 		JButton btnEnviar = new JButton("Enviar");
 		btnEnviar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String mensagem = txtMensagem.getText();
 				codigo.Topico a = new codigo.Topico();
-				a.validaResponderTopico(mensagem);
+				a.validaResponderTopico(mensagem, index, topicoSelecionado);
 				
 				Topico b = new Topico(index, topicoSelecionado);
 				dispose();

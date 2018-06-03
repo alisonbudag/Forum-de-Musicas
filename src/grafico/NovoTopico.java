@@ -2,6 +2,7 @@ package grafico;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 import java.awt.Color;
@@ -219,8 +220,9 @@ public class NovoTopico extends JFrame {
 		
 		JTextArea txtMensagem = new JTextArea();
 		txtMensagem.setLineWrap(true);
-		txtMensagem.setBounds(10, 186, 480, 173);
-		contentPane.add(txtMensagem);
+		JScrollPane barraResponder = new JScrollPane(txtMensagem);
+		barraResponder.setBounds(10, 186, 480, 173);
+		contentPane.add(barraResponder);
 		
 		JButton btnEnviar = new JButton("Enviar");
 		btnEnviar.addActionListener(new ActionListener() {

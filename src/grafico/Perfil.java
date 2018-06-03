@@ -3,6 +3,9 @@ package grafico;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import codigo.VariaveisEstaticas;
+
 import javax.swing.JLabel;
 import javax.swing.ImageIcon;
 import java.awt.Color;
@@ -199,12 +202,16 @@ public class Perfil extends JFrame {
 		lblSessao.setBounds(10, 64, 480, 27);
 		contentPane.add(lblSessao);
 		
-		if(codigo.VariaveisEstaticas.isAdm == true) {
-			lblSessao.setText("PERFIL - ADMINISTRADOR");
-		}else if(codigo.VariaveisEstaticas.isMod == true) {
-			lblSessao.setText("PERFIL - MODERADOR");
-		}else {
-			lblSessao.setText("PERFIL - MEMBRO");
+		for(int i=0; i<codigo.Perfil.dadosPerfil.size(); i++) {
+			if(codigo.Perfil.dadosPerfil.get(i).getNome().equals(VariaveisEstaticas.usuarioLogado)) {
+				if(codigo.Perfil.dadosPerfil.get(i).isAdm() == true) {
+					lblSessao.setText("PERFIL - ADMINISTRADOR");
+				}else if(codigo.Perfil.dadosPerfil.get(i).isMod() == true) {
+					lblSessao.setText("PERFIL - MODERADOR");
+				}else {
+					lblSessao.setText("PERFIL - MEMBRO");
+				}
+			}
 		}
 		
 		JLabel lblNome = new JLabel("Nome");

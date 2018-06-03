@@ -257,7 +257,7 @@ public class Topico extends JFrame {
 		
 		//Chamar JPanel
 		JPanelMensagem a = new JPanelMensagem();
-		contentPane.add(a.estrutura(""));
+		contentPane.add(a.estrutura(index, topicoSelecionado));
 		
 		JButton btnVoltar = new JButton("Voltar");
 		btnVoltar.addActionListener(new ActionListener() {
@@ -291,6 +291,12 @@ public class Topico extends JFrame {
 			btnExcluirTopico.setVisible(false);
 		}
 		contentPane.add(btnExcluirTopico);
+		
+		JLabel lblRespostas = new JLabel("Respostas:");
+		lblRespostas.setFont(new Font("Tahoma", Font.BOLD, 13));
+		lblRespostas.setHorizontalAlignment(SwingConstants.LEFT);
+		lblRespostas.setBounds(10, 205, 480, 14);
+		contentPane.add(lblRespostas);
 		
 		setVisible(true);
 	}

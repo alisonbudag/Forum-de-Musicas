@@ -5,16 +5,23 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JTree;
 import javax.swing.tree.DefaultTreeModel;
+
+import codigo.VariaveisEstaticas;
+
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.ImageIcon;
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
 import javax.swing.SwingConstants;
 import javax.swing.JScrollPane;
+import javax.swing.JButton;
 
 public class Home extends JFrame {
 
@@ -99,7 +106,7 @@ public class Home extends JFrame {
 		JScrollPane barra = new JScrollPane(tree);
 		barra.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
 	    barra.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
-		barra.setBounds(10, 119, 480, 270);
+		barra.setBounds(10, 119, 480, 240);
 		barra.setOpaque(false);
 		contentPane.add(barra);
 		
@@ -263,13 +270,31 @@ public class Home extends JFrame {
 			}
 		});
 		
-		JLabel lblNewLabel = new JLabel("Bem Vindo ao Darkest Side of the Music");
+		JLabel lblNewLabel = new JLabel("Bem vindo ao Darkest Side of the Music");
 		lblNewLabel.setOpaque(true);
 		lblNewLabel.setBackground(Color.LIGHT_GRAY);
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 18));
 		lblNewLabel.setBounds(10, 64, 480, 27);
 		contentPane.add(lblNewLabel);
+		
+		JButton btnPainelDeControle = new JButton("Painel de Controle [ADM/MOD]");
+		btnPainelDeControle.setBounds(128, 366, 230, 23);
+		contentPane.add(btnPainelDeControle);
+		btnPainelDeControle.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				
+				if(VariaveisEstaticas.isAdm == true || VariaveisEstaticas.isMod == true) {
+					PainelControle a = new PainelControle();
+					dispose();
+				}else {
+					JOptionPane.showMessageDialog(null, "Você não tem permissão para fazer isto.");
+				}
+				
+			}
+		});
 		
 		setVisible(true);
 	}
