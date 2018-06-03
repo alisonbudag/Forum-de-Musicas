@@ -123,14 +123,6 @@ public class Topico {
 
 		}
 
-		for (int i = 0; i < Topico.dadosRespostasTopico.size(); i++) {
-			if (index.equals(Topico.dadosRespostasTopico.get(i).getSessao())) {
-				if (topicoSelecionado.equals(Topico.dadosRespostasTopico.get(i).getTitulo())) {
-					Topico.dadosRespostasTopico.remove(i);
-				}
-			}
-		}
-
 	}
 
 	// Validar responder tópico
@@ -153,6 +145,20 @@ public class Topico {
 		a.setTitulo(topicoSelecionado);
 		Topico.dadosRespostasTopico.add(a);
 
+	}
+	
+	// Excluir respostas do tópico
+	public void excluirRespostasTopico(String index, String topicoSelecionado) {
+		
+		for (int i = 0; i < Topico.dadosRespostasTopico.size(); i++) {
+			if (index.equals(Topico.dadosRespostasTopico.get(i).getSessao())) {
+				if (topicoSelecionado.equals(Topico.dadosRespostasTopico.get(i).getTitulo())) {
+					Topico.dadosRespostasTopico.remove(i);
+					i--;
+				}
+			}
+		}
+		
 	}
 
 }

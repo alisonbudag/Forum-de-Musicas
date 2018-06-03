@@ -278,6 +278,7 @@ public class Topico extends JFrame {
 				if(confirm == 0) {
 					codigo.Topico a = new codigo.Topico();
 					a.excluirTopico(index, topicoSelecionado);
+					a.excluirRespostasTopico(index, topicoSelecionado);
 					Sessao b = new Sessao(index);
 					dispose();
 				}
