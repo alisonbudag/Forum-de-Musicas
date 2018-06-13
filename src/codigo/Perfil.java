@@ -118,7 +118,7 @@ public class Perfil {
 
 				for (int i = 0; i < Login.dadosLogin.size(); i++) {
 
-					if (Login.dadosLogin.get(i).getLogin().equals(nome)) {
+					if (Login.dadosLogin.get(i).getLogin().equalsIgnoreCase(nome)) {
 
 						valida = false;
 						break;
